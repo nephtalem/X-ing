@@ -62,7 +62,7 @@ export default function SignupPage() {
         description: 'Welcome to X-ing! Redirecting...',
       });
       setTimeout(() => {
-        router.push('/dashboard');
+        router.push('/today');
         router.refresh();
       }, 1500);
     }

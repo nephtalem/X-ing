@@ -35,9 +35,9 @@ export default function LoginPage() {
 
     if (data) {
       toast.success('Welcome back!', {
-        description: 'Redirecting to dashboard...',
+        description: 'Taking you to your tasks...',
       });
-      router.push('/dashboard');
+      router.push('/today');
       router.refresh();
     }
   };

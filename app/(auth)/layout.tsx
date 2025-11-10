@@ -6,11 +6,11 @@ export default async function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // If user is already logged in, redirect to dashboard
+  // If user is already logged in, redirect to today page
   const { user } = await getCurrentUser();
   
   if (user) {
-    redirect('/dashboard');
+    redirect('/today');
   }
 
   return (
