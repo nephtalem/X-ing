@@ -13,7 +13,12 @@ export default function NewTaskPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    description: string;
+    target_days_per_week: number;
+    color: string;
+  }>({
     name: '',
     description: '',
     target_days_per_week: DEFAULT_TARGET_DAYS_PER_WEEK,

@@ -19,7 +19,12 @@ export default function EditTaskPage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [task, setTask] = useState<Task | null>(null);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    description: string;
+    target_days_per_week: number;
+    color: string;
+  }>({
     name: '',
     description: '',
     target_days_per_week: DEFAULT_TARGET_DAYS_PER_WEEK,

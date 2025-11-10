@@ -323,11 +323,11 @@ export default function TaskGoalsPage() {
     // Collect all goals from all weeks
     const allGoals: any[] = [];
     
-    weeklyForms.forEach((week, weekIndex) => {
+    weeklyForms.forEach((week: any, weekIndex: number) => {
       const numGoals = goalsPerWeek[weekIndex] || 1;
       
       for (let goalIndex = 0; goalIndex < numGoals; goalIndex++) {
-        const goalData = weeklyForms[weekIndex]?.[`goal_${goalIndex}`];
+        const goalData = week[`goal_${goalIndex}`];
         
         if (goalData && goalData.goal_title?.trim()) {
           allGoals.push({
@@ -725,9 +725,9 @@ export default function TaskGoalsPage() {
                         </div>
                         <Input
                           placeholder={`Goal ${goalIndex + 1} for Week ${week.weekNumber}...`}
-                          value={weeklyForms[weekIndex]?.[`goal_${goalIndex}`]?.goal_title || ''}
+                          value={(weeklyForms[weekIndex] as any)?.[`goal_${goalIndex}`]?.goal_title || ''}
                           onChange={(e) => {
-                            const updated = [...weeklyForms];
+                            const updated = [...weeklyForms] as any[];
                             if (!updated[weekIndex][`goal_${goalIndex}`]) {
                               updated[weekIndex][`goal_${goalIndex}`] = { goal_title: '', description: '' };
                             }
@@ -737,9 +737,9 @@ export default function TaskGoalsPage() {
                         />
                         <Input
                           placeholder="Description (optional)"
-                          value={weeklyForms[weekIndex]?.[`goal_${goalIndex}`]?.description || ''}
+                          value={(weeklyForms[weekIndex] as any)?.[`goal_${goalIndex}`]?.description || ''}
                           onChange={(e) => {
-                            const updated = [...weeklyForms];
+                            const updated = [...weeklyForms] as any[];
                             if (!updated[weekIndex][`goal_${goalIndex}`]) {
                               updated[weekIndex][`goal_${goalIndex}`] = { goal_title: '', description: '' };
                             }
